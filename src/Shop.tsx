@@ -15,6 +15,12 @@ export interface ProductItem {
   image: string;
   images: string[];
   description: string;
+  sizes?: string[];
+}
+
+export function parseProductPrice(priceStr: string): number {
+  const match = priceStr.match(/(\d+(?:[.,]\d+)?)/);
+  return match ? parseFloat(match[1].replace(',', '.')) : 0;
 }
 
 export const productsData: ProductItem[] = [
@@ -24,9 +30,10 @@ export const productsData: ProductItem[] = [
     brand: 'Casablanca',
     color: 'Negro',
     price: '1€', 
-    image: '/Ropa/1A.jpg', 
-    images: ['/Ropa/1A.jpg', '/Ropa/1B.jpg', '/Ropa/1C.jpg', '/Ropa/1D.jpg'],
-    description: 'Camiseta de corte relajado confeccionada en algodón orgánico de alto gramaje con gráfico psicodélico Casablanca Paris en el pecho y espalda.' 
+    image: '/Ropa/1M.jpg', 
+    images: ['/Ropa/1M.jpg', '/Ropa/1A.jpg', '/Ropa/1B.jpg', '/Ropa/1C.jpg', '/Ropa/1D.jpg'],
+    description: 'Camiseta de corte relajado confeccionada en algodón orgánico de alto gramaje con gráfico psicodélico Casablanca Paris en el pecho y espalda.',
+    sizes: ['S', 'M', 'L', 'XL', 'XXL']
   },
   { 
     id: 2, 
@@ -34,9 +41,10 @@ export const productsData: ProductItem[] = [
     brand: 'Amiri',
     color: 'Negro',
     price: '2€', 
-    image: '/Ropa/2A.jpg', 
-    images: ['/Ropa/2A.jpg', '/Ropa/2B.jpg', '/Ropa/2C.jpg', '/Ropa/2D.jpg'],
-    description: 'Camiseta negra clásica de cuello redondo con el monograma MA de Amiri en el pecho y el logo serigrafiado en la espalda.' 
+    image: '/Ropa/2M.jpg', 
+    images: ['/Ropa/2M.jpg', '/Ropa/2A.jpg', '/Ropa/2B.jpg', '/Ropa/2C.jpg', '/Ropa/2D.jpg'],
+    description: 'Camiseta negra clásica de cuello redondo con el monograma MA de Amiri en el pecho y el logo serigrafiado en la espalda.',
+    sizes: ['S', 'M', 'L', 'XL', 'XXL']
   },
   { 
     id: 3, 
@@ -44,9 +52,10 @@ export const productsData: ProductItem[] = [
     brand: 'Casablanca',
     color: 'Negro',
     price: '3€', 
-    image: '/Ropa/3A.jpg', 
-    images: ['/Ropa/3A.jpg', '/Ropa/3D.jpg', '/Ropa/3B.jpg', '/Ropa/3C.jpg'],
-    description: 'Camiseta premium en color negro con motivo gráfico de diamante y monograma entrelazado Casa Blanca en el frontal y dorso.' 
+    image: '/Ropa/3M.jpg', 
+    images: ['/Ropa/3M.jpg', '/Ropa/3A.jpg', '/Ropa/3B.jpg', '/Ropa/3C.jpg', '/Ropa/3D.jpg'],
+    description: 'Camiseta premium en color negro con motivo gráfico de diamante y monograma entrelazado Casa Blanca en el frontal y dorso.',
+    sizes: ['S', 'M', 'L', 'XL']
   },
   { 
     id: 4, 
@@ -54,21 +63,27 @@ export const productsData: ProductItem[] = [
     brand: 'Casablanca',
     color: 'Negro',
     price: '4€', 
-    image: '/Ropa/4D.jpg', 
-    images: ['/Ropa/4D.jpg', '/Ropa/4A.jpg', '/Ropa/4B.jpg', '/Ropa/4C.jpg'],
-    description: 'Camiseta de algodón con ilustración en arco de atardecer, palmera y horizonte arquitectónico Casa Blanca.' 
+    image: '/Ropa/4M.jpg', 
+    images: ['/Ropa/4M.jpg', '/Ropa/4A.jpg', '/Ropa/4B.jpg', '/Ropa/4C.jpg', '/Ropa/4D.jpg'],
+    description: 'Camiseta de algodón con ilustración en arco de atardecer, palmera y horizonte arquitectónico Casa Blanca.',
+    sizes: ['M', 'L', 'XL', 'XXL']
   },
-  // 12 artículos genéricos para catálogo
-  ...Array.from({ length: 12 }, (_, i) => ({
-    id: 5 + i,
-    name: 'Camiseta',
-    brand: 'Casablanca',
-    color: 'Negro',
-    price: 'XX€',
-    image: '/tshirt-icon.svg',
-    images: ['/tshirt-icon.svg'],
-    description: 'Camiseta básica de algodón de alta calidad con corte regular y acabados reforzados.'
-  }))
+  // 12 artículos adicionales para catálogo con precios y marcas variadas
+  ...Array.from({ length: 12 }, (_, i) => {
+    const prices = [45, 65, 80, 95, 115, 130, 150, 175, 190, 210, 230, 245];
+    const brand = i % 2 === 0 ? 'Casablanca' : 'Amiri';
+    return {
+      id: 5 + i,
+      name: `Camiseta ${brand}`,
+      brand,
+      color: i % 3 === 0 ? 'Blanco' : 'Negro',
+      price: `${prices[i % prices.length]}€`,
+      image: '/tshirt-icon.svg',
+      images: ['/tshirt-icon.svg'],
+      description: 'Camiseta básica de algodón de alta calidad con corte regular y acabados reforzados.',
+      sizes: ['S', 'M', 'L', 'XL', 'XXL']
+    };
+  })
 ];
 
 export function Shop() {
@@ -105,6 +120,13 @@ export function Shop() {
           <div className="shop-banner-overlay">
             <h2>BESTFITS</h2>
             <p>LAS MEJORES MARCAS</p>
+            <button 
+              type="button"
+              className="shop-banner-btn"
+              onClick={() => navigate('/all?category=camisetas')}
+            >
+              VER CAMISETAS
+            </button>
           </div>
         </div>
       )}

@@ -1,12 +1,22 @@
 import { useState, useEffect, useLayoutEffect, useRef, ReactNode } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { Search, ShoppingBag, Truck } from 'lucide-react';
+import { Search, ShoppingBag, Truck, Menu } from 'lucide-react';
 import { useShop } from './ShopContext';
+import { SideDrawer } from './SideDrawer';
+
+const ANNOUNCEMENT_ITEMS = [
+  'MÉTODOS DE PAGO FIABLES',
+  'CAMBIOS Y DEVOLUCIONES',
+  'ENVÍOS EN 24H',
+  'ATENCIÓN DIRECTA 7 DÍAS A LA SEMANA',
+  'CALIDAD ASEGURADA',
+];
 
 export function ShopLayout({ children }: { children: ReactNode }) {
   const navigate = useNavigate();
   const location = useLocation();
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const { cart } = useShop();
 
   const totalItemCount = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
@@ -29,8 +39,9 @@ export function ShopLayout({ children }: { children: ReactNode }) {
     return () => clearTimeout(timer);
   }, []);
 
-  // Siempre abrir desde arriba del todo al cambiar de ruta
+  // Siempre abrir desde arriba del todo y cerrar drawer al cambiar de ruta
   useLayoutEffect(() => {
+    setIsDrawerOpen(false);
     window.scrollTo(0, 0);
     document.documentElement.scrollTop = 0;
     document.body.scrollTop = 0;
@@ -40,7 +51,7 @@ export function ShopLayout({ children }: { children: ReactNode }) {
       document.body.scrollTop = 0;
     }, 10);
     return () => clearTimeout(timer);
-  }, [location.pathname]);
+  }, [location.pathname, location.search]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -70,54 +81,78 @@ export function ShopLayout({ children }: { children: ReactNode }) {
         </div>
       )}
 
-      {/* Header */}
+      {/* Barra superior de anuncios con marquesina infinita hacia la izquierda */}
+      <div className="shop-top-announcement">
+        <div className="shop-top-announcement-track">
+          <div className="shop-top-announcement-group">
+            {[...ANNOUNCEMENT_ITEMS, ...ANNOUNCEMENT_ITEMS].map((text, i) => (
+              <span key={`a-${i}`} className="shop-top-announcement-item">
+                <span>{text}</span>
+                <span className="bullet">•</span>
+              </span>
+            ))}
+          </div>
+          <div className="shop-top-announcement-group" aria-hidden="true">
+            {[...ANNOUNCEMENT_ITEMS, ...ANNOUNCEMENT_ITEMS].map((text, i) => (
+              <span key={`b-${i}`} className="shop-top-announcement-item">
+                <span>{text}</span>
+                <span className="bullet">•</span>
+              </span>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Header con botón Burger */}
       <nav className={`shop-nav ${isScrolled ? 'scrolled' : ''}`}>
         <div className="shop-nav-main">
           <div className="shop-nav-left">
+            <button 
+              type="button"
+              className="shop-burger-btn" 
+              onClick={() => setIsDrawerOpen(true)}
+              aria-label="Abrir menú lateral"
+            >
+              <Menu size={25} />
+            </button>
             <div className="shop-logo" onClick={() => navigate('/')} style={{ cursor: 'pointer' }}>
               BESTFITS
             </div>
-            <div className="shop-nav-links desktop-nav-links">
-              <span 
-                onClick={() => navigate('/')}
-                className={location.pathname === '/' || location.pathname.toLowerCase() === '/shop' ? 'active-link' : ''}
-              >
-                Home
-              </span>
-              <span 
-                onClick={() => navigate('/all')}
-                className={location.pathname.toLowerCase().includes('all') ? 'active-link' : ''}
-              >
-                TODOS LOS ARTÍCULOS
-              </span>
-            </div>
           </div>
+
           <div className="shop-nav-right">
-            <Search size={20} style={{ cursor: 'pointer' }} />
-            <Truck size={20} style={{ cursor: 'pointer' }} onClick={() => navigate('/tracking')} />
+            <button 
+              type="button"
+              className="shop-nav-icon-btn" 
+              onClick={() => setIsDrawerOpen(true)}
+              aria-label="Buscar artículos"
+              title="Buscar"
+            >
+              <Search size={21} />
+            </button>
+            <button 
+              type="button"
+              className="shop-nav-icon-btn" 
+              onClick={() => navigate('/tracking')}
+              aria-label="Seguimiento de envío"
+              title="Seguimiento de envío"
+            >
+              <Truck size={21} />
+            </button>
             <div className="shop-cart-btn" onClick={() => navigate('/cart')} style={{ position: 'relative' }}>
-              <ShoppingBag size={20} />
+              <ShoppingBag size={21} />
               {totalItemCount > 0 && <span className="cart-badge">{totalItemCount}</span>}
               {showPlusOne && <span className="cart-plus-one">+1</span>}
             </div>
           </div>
         </div>
-        {/* Mobile secondary links row */}
-        <div className="shop-nav-links mobile-nav-links">
-          <span 
-            onClick={() => navigate('/')}
-            className={location.pathname === '/' || location.pathname.toLowerCase() === '/shop' ? 'active-link' : ''}
-          >
-            Home
-          </span>
-          <span 
-            onClick={() => navigate('/all')}
-            className={location.pathname.toLowerCase().includes('all') ? 'active-link' : ''}
-          >
-            TODOS LOS ARTÍCULOS
-          </span>
-        </div>
       </nav>
+
+      {/* Menú Lateral Desplegable */}
+      <SideDrawer 
+        isOpen={isDrawerOpen} 
+        onClose={() => setIsDrawerOpen(false)} 
+      />
 
       {/* Main Content wrapped with a key for transition */}
       <div key={location.pathname} className="shop-page-transition">
@@ -126,12 +161,29 @@ export function ShopLayout({ children }: { children: ReactNode }) {
 
       {/* Footer */}
       <footer className="shop-footer">
-        <div className="shop-footer-separator"></div>
-        <div className="shop-footer-links">
-          <span onClick={() => navigate('/contact')}>CONTÁCTANOS</span>
-          <span onClick={() => navigate('/faq#terms')}>TÉRMINOS Y CONDICIONES</span>
-          <span onClick={() => navigate('/faq#shipping')}>ENVÍOS</span>
-          <span onClick={() => navigate('/faq#returns')}>DEVOLUCIONES</span>
+        <div className="shop-footer-main">
+          {/* Categorías de la tienda en texto blanco */}
+          <div className="shop-footer-categories">
+            <span onClick={() => navigate('/all?category=camisetas')}>CAMISETAS</span>
+            <span onClick={() => navigate('/all?category=sudaderas')}>SUDADERAS</span>
+            <span onClick={() => navigate('/all?category=chaquetas')}>CHAQUETAS</span>
+            <span onClick={() => navigate('/all?filter=ofertas')} className="footer-deals-tag">OFERTAS</span>
+          </div>
+
+          <div className="shop-footer-separator"></div>
+
+          {/* Enlaces secundarios */}
+          <div className="shop-footer-links">
+            <span onClick={() => navigate('/contact')}>CONTÁCTANOS</span>
+            <span onClick={() => navigate('/faq#terms')}>TÉRMINOS Y CONDICIONES</span>
+            <span onClick={() => navigate('/faq#shipping')}>ENVÍOS</span>
+            <span onClick={() => navigate('/faq#returns')}>DEVOLUCIONES</span>
+            <span onClick={() => navigate('/tracking')}>SEGUIMIENTO</span>
+          </div>
+
+          <div className="shop-footer-copy">
+            © {new Date().getFullYear()} BESTFITS. TODOS LOS DERECHOS RESERVADOS.
+          </div>
         </div>
       </footer>
     </div>
