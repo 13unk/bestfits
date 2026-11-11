@@ -76,7 +76,7 @@ export function Product({ id }: { id?: number }) {
         
         <div className="product-options">
           <div className="product-sizes">
-            {['S', 'M', 'L', 'XL'].map(size => (
+            {(product.sizes || ['S', 'M', 'L', 'XL']).map(size => (
               <span 
                 key={size} 
                 onClick={() => setSelectedSize(size)}

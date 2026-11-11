@@ -68,22 +68,105 @@ export const productsData: ProductItem[] = [
     description: 'Camiseta de algodón con ilustración en arco de atardecer, palmera y horizonte arquitectónico Casa Blanca.',
     sizes: ['M', 'L', 'XL', 'XXL']
   },
-  // 12 artículos adicionales para catálogo con precios y marcas variadas
-  ...Array.from({ length: 12 }, (_, i) => {
-    const prices = [45, 65, 80, 95, 115, 130, 150, 175, 190, 210, 230, 245];
-    const brand = i % 2 === 0 ? 'Casablanca' : 'Amiri';
-    return {
-      id: 5 + i,
-      name: `Camiseta ${brand}`,
-      brand,
-      color: i % 3 === 0 ? 'Blanco' : 'Negro',
-      price: `${prices[i % prices.length]}€`,
-      image: '/tshirt-icon.svg',
-      images: ['/tshirt-icon.svg'],
-      description: 'Camiseta básica de algodón de alta calidad con corte regular y acabados reforzados.',
-      sizes: ['S', 'M', 'L', 'XL', 'XXL']
-    };
-  })
+  { 
+    id: 5, 
+    name: 'Camiseta Amiri', 
+    brand: 'Amiri',
+    color: 'Blanco',
+    price: '45€', 
+    image: '/Ropa/5M.jpg', 
+    images: ['/Ropa/5M.jpg', '/Ropa/5A.jpg', '/Ropa/5B.jpg', '/Ropa/5C.jpg', '/Ropa/5D.jpg'],
+    description: 'Camiseta blanca de algodón premium con el monograma MA y tipografía Amiri Hollywood Built on Dreams en el pecho y espalda.',
+    sizes: ['S', 'M', 'L', 'XL', 'XXL']
+  },
+  { 
+    id: 6, 
+    name: 'Camiseta Off-White', 
+    brand: 'Off-White',
+    color: 'Negro',
+    price: '65€', 
+    image: '/Ropa/6M.jpg', 
+    images: ['/Ropa/6M.jpg', '/Ropa/6A.jpg', '/Ropa/6B.jpg', '/Ropa/6C.jpg', '/Ropa/6D.jpg'],
+    description: 'Camiseta negra edición especial Off-White x André con gráfico XO azul y firma rosa en el frontal y flechas spray en la espalda.',
+    sizes: ['S', 'M', 'L', 'XL', 'XXL']
+  },
+  { 
+    id: 7, 
+    name: 'Camiseta Amiri', 
+    brand: 'Amiri',
+    color: 'Negro',
+    price: '55€', 
+    image: '/Ropa/7M.jpg', 
+    images: ['/Ropa/7M.jpg', '/Ropa/7A.jpg', '/Ropa/7B.jpg', '/Ropa/7C.jpg', '/Ropa/7D.jpg'],
+    description: 'Camiseta negra clásica de corte regular con el emblema MA y texto Amiri Hollywood Built on Dreams en blanco en pecho y espalda.',
+    sizes: ['S', 'M', 'L', 'XL', 'XXL']
+  },
+  { 
+    id: 8, 
+    name: 'Camiseta Casablanca', 
+    brand: 'Casablanca',
+    color: 'Negro',
+    price: '75€', 
+    image: '/Ropa/8M.jpg', 
+    images: ['/Ropa/8M.jpg', '/Ropa/8A.jpg', '/Ropa/8B.jpg', '/Ropa/8C.jpg', '/Ropa/8D.jpg'],
+    description: 'Camiseta negra de algodón orgánico con ilustración tenística vintage y tipografía Casablanca en verde en el pecho y espalda.',
+    sizes: ['S', 'M', 'L', 'XL', 'XXL']
+  },
+  { 
+    id: 9, 
+    name: 'Camiseta Amiri', 
+    brand: 'Amiri',
+    color: 'Negro',
+    price: '85€', 
+    image: '/Ropa/9M.jpg', 
+    images: ['/Ropa/9M.jpg', '/Ropa/9A.jpg', '/Ropa/9B.jpg', '/Ropa/9C.jpg', '/Ropa/9D.jpg'],
+    description: 'Camiseta negra confeccionada en algodón de alto gramaje con gráfico de monogramas MA entrelazados con llamas y logo Amiri en pecho y dorso.',
+    sizes: ['S', 'M', 'L', 'XL', 'XXL']
+  },
+  { 
+    id: 10, 
+    name: 'Camiseta Casablanca', 
+    brand: 'Casablanca',
+    color: 'Negro',
+    price: '95€', 
+    image: '/Ropa/10M.jpg', 
+    images: ['/Ropa/10M.jpg', '/Ropa/10A.jpg', '/Ropa/10B.jpg', '/Ropa/10C.jpg', '/Ropa/10D.jpg'],
+    description: 'Camiseta negra con diseño clásico de templo griego, antorchas olímpicas, laureles y tipografía Casablanca Équipement Sportif.',
+    sizes: ['S', 'M', 'L', 'XL', 'XXL']
+  },
+  { 
+    id: 11, 
+    name: 'Camiseta Casablanca', 
+    brand: 'Casablanca',
+    color: 'Blanco',
+    price: '110€', 
+    image: '/Ropa/11M.jpg', 
+    images: ['/Ropa/11M.jpg', '/Ropa/11A.jpg', '/Ropa/11B.jpg', '/Ropa/11C.jpg', '/Ropa/11D.jpg'],
+    description: 'Camiseta blanca de algodón suave con ilustración de columna jónica clásica y logotipo Casa Blanca en tonos azules y dorados.',
+    sizes: ['S', 'M', 'L', 'XL', 'XXL']
+  },
+  { 
+    id: 12, 
+    name: 'Camiseta Casablanca', 
+    brand: 'Casablanca',
+    color: 'Blanco',
+    price: '125€', 
+    image: '/Ropa/12M.jpg', 
+    images: ['/Ropa/12M.jpg', '/Ropa/12A.jpg', '/Ropa/12B.jpg', '/Ropa/12C.jpg', '/Ropa/12D.jpg'],
+    description: 'Camiseta blanca de corte relajado con escena parisina en arco de la Torre Eiffel y coches clásicos Casa Blanca en pecho y espalda.',
+    sizes: ['S', 'M', 'L', 'XL', 'XXL']
+  },
+  { 
+    id: 13, 
+    name: 'Camiseta Casablanca', 
+    brand: 'Casablanca',
+    color: 'Blanco',
+    price: '140€', 
+    image: '/Ropa/013M.jpg', 
+    images: ['/Ropa/013M.jpg', '/Ropa/013A.jpg', '/Ropa/013B.jpg', '/Ropa/013C.jpg', '/Ropa/013D.jpg'],
+    description: 'Camiseta blanca de algodón orgánico con ilustración arquitectónica surrealista de columna y monograma rojo entrelazado Casablanca.',
+    sizes: ['S', 'M', 'L', 'XL', 'XXL']
+  }
 ];
 
 export function Shop() {
