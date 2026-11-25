@@ -28,6 +28,8 @@ const CATEGORIES: CategoryItem[] = [
     name: 'SUDADERAS',
     subcategories: [
       { name: 'Todo', path: '/all?category=sudaderas' },
+      { name: 'C.P. Company', path: '/all?category=sudaderas&brand=C.P.+Company' },
+      { name: 'Stone Island', path: '/all?category=sudaderas&brand=Stone+Island' },
       { name: 'Amiri', path: '/all?category=sudaderas&brand=Amiri' },
       { name: 'Casablanca', path: '/all?category=sudaderas&brand=Casablanca' },
     ],
@@ -37,6 +39,8 @@ const CATEGORIES: CategoryItem[] = [
     name: 'CHAQUETAS',
     subcategories: [
       { name: 'Todo', path: '/all?category=chaquetas' },
+      { name: 'Stone Island', path: '/all?category=chaquetas&brand=Stone+Island' },
+      { name: 'C.P. Company', path: '/all?category=chaquetas&brand=C.P.+Company' },
       { name: 'Amiri', path: '/all?category=chaquetas&brand=Amiri' },
       { name: 'Casablanca', path: '/all?category=chaquetas&brand=Casablanca' },
     ],

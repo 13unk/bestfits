@@ -15,7 +15,7 @@ interface FilterDrawerProps {
 }
 
 const AVAILABLE_SIZES = ['S', 'M', 'L', 'XL', 'XXL'];
-const AVAILABLE_BRANDS = ['Amiri', 'Casablanca'];
+const AVAILABLE_BRANDS = ['Amiri', 'Casablanca', 'C.P. Company', 'Stone Island'];
 
 export function FilterDrawer({
   isOpen,

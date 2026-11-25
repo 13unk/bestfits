@@ -166,6 +166,149 @@ export const productsData: ProductItem[] = [
     images: ['/Ropa/013M.jpg', '/Ropa/013A.jpg', '/Ropa/013B.jpg', '/Ropa/013C.jpg', '/Ropa/013D.jpg'],
     description: 'Camiseta blanca de algodón orgánico con ilustración arquitectónica surrealista de columna y monograma rojo entrelazado Casablanca.',
     sizes: ['S', 'M', 'L', 'XL', 'XXL']
+  },
+  { 
+    id: 14, 
+    name: 'Camiseta Casablanca', 
+    brand: 'Casablanca',
+    color: 'Blanco',
+    price: '145€', 
+    image: '/Ropa/14M.jpg', 
+    images: ['/Ropa/14M.jpg', '/Ropa/14A.jpg', '/Ropa/14B.jpg', '/Ropa/14C.jpg', '/Ropa/14D.jpg'],
+    description: 'Camiseta blanca confeccionada en algodón orgánico con gráfico de arco crepuscular, palmera y luna creciente Casa Blanca en el pecho y espalda.',
+    sizes: ['S', 'M', 'L', 'XL', 'XXL']
+  },
+  { 
+    id: 15, 
+    name: 'Sudadera C.P. Company', 
+    brand: 'C.P. Company',
+    color: 'Negro',
+    price: '160€', 
+    image: '/Ropa/15M.jpg', 
+    images: ['/Ropa/15M.jpg', '/Ropa/15A.jpg', '/Ropa/15B.jpg', '/Ropa/15C.jpg', '/Ropa/15D.jpg'],
+    description: 'Sudadera negra de cuello redondo en felpa diagonal de algodón con bolsillo funcional y lente icónica de C.P. Company en la manga.',
+    sizes: ['S', 'M', 'L', 'XL', 'XXL']
+  },
+  { 
+    id: 16, 
+    name: 'Sudadera C.P. Company', 
+    brand: 'C.P. Company',
+    color: 'Gris',
+    price: '160€', 
+    image: '/Ropa/16M.jpg', 
+    images: ['/Ropa/16M.jpg', '/Ropa/16A.jpg', '/Ropa/16B.jpg', '/Ropa/16C.jpg', '/Ropa/16D.jpg'],
+    description: 'Sudadera gris plomo en suave algodón con cuello redondo, remates acanalados y detalle de lente exclusiva C.P. Company en la manga.',
+    sizes: ['S', 'M', 'L', 'XL', 'XXL']
+  },
+  { 
+    id: 17, 
+    name: 'Sudadera C.P. Company', 
+    brand: 'C.P. Company',
+    color: 'Azul',
+    price: '160€', 
+    image: '/Ropa/17M.jpg', 
+    images: ['/Ropa/17M.jpg', '/Ropa/17A.jpg', '/Ropa/17B.jpg', '/Ropa/17C.jpg', '/Ropa/17D.jpg'],
+    description: 'Sudadera en azul petróleo confeccionada en felpa de algodón de primera calidad con bolsillo de cremallera y lente C.P. Company.',
+    sizes: ['S', 'M', 'L', 'XL', 'XXL']
+  },
+  { 
+    id: 18, 
+    name: 'Sudadera C.P. Company', 
+    brand: 'C.P. Company',
+    color: 'Beige',
+    price: '160€', 
+    image: '/Ropa/18M.jpg', 
+    images: ['/Ropa/18M.jpg', '/Ropa/18A.jpg', '/Ropa/18B.jpg', '/Ropa/18C.jpg', '/Ropa/18D.jpg'],
+    description: 'Sudadera beige arena de corte cómodo confeccionada en algodón transpirable con lente distintiva C.P. Company en el bolsillo de la manga.',
+    sizes: ['S', 'M', 'L', 'XL', 'XXL']
+  },
+  { 
+    id: 19, 
+    name: 'Sudadera C.P. Company', 
+    brand: 'C.P. Company',
+    color: 'Celeste',
+    price: '160€', 
+    image: '/Ropa/19M.jpg', 
+    images: ['/Ropa/19M.jpg', '/Ropa/19A.jpg', '/Ropa/19B.jpg', '/Ropa/19C.jpg', '/Ropa/19D.jpg'],
+    description: 'Sudadera celeste en algodón orgánico teñido en prenda con cuello redondo y mítica lente C.P. Company en el brazo.',
+    sizes: ['S', 'M', 'L', 'XL', 'XXL']
+  },
+  { 
+    id: 20, 
+    name: 'Sudadera Stone Island', 
+    brand: 'Stone Island',
+    color: 'Naranja',
+    price: '180€', 
+    image: '/Ropa/20M.jpg', 
+    images: ['/Ropa/20M.jpg', '/Ropa/20A.jpg', '/Ropa/20B.jpg', '/Ropa/20C.jpg', '/Ropa/20D.jpg'],
+    description: 'Sudadera naranja salmón con canesú y bolsillos en relieve en los hombros, acabada con la insignia desmontable Stone Island Compass en la manga.',
+    sizes: ['S', 'M', 'L', 'XL', 'XXL']
+  },
+  { 
+    id: 21, 
+    name: 'Sudadera Stone Island', 
+    brand: 'Stone Island',
+    color: 'Rosa',
+    price: '175€', 
+    image: '/Ropa/21M.jpg', 
+    images: ['/Ropa/21M.jpg', '/Ropa/21A.jpg', '/Ropa/21B.jpg', '/Ropa/21C.jpg', '/Ropa/21D.jpg'],
+    description: 'Sudadera en suave tono rosa pastel de felpa de algodón de alto gramaje con cuello redondo acanalado y parche clásico Stone Island Compass.',
+    sizes: ['S', 'M', 'L', 'XL', 'XXL']
+  },
+  { 
+    id: 22, 
+    name: 'Chaqueta Stone Island Soft Shell', 
+    brand: 'Stone Island',
+    color: 'Verde',
+    price: '220€', 
+    image: '/Ropa/22M.jpg', 
+    images: ['/Ropa/22M.jpg', '/Ropa/22A.jpg', '/Ropa/22B.jpg', '/Ropa/22C.jpg', '/Ropa/22D.jpg'],
+    description: 'Chaqueta Soft Shell-R impermeable y cortavientos con capucha en tono verde salvia claro / caqui, cremallera completa e insignia Stone Island.',
+    sizes: ['S', 'M', 'L', 'XL', 'XXL']
+  },
+  { 
+    id: 23, 
+    name: 'Chaqueta Stone Island Cortavientos', 
+    brand: 'Stone Island',
+    color: 'Negro',
+    price: '210€', 
+    image: '/Ropa/23M.jpg', 
+    images: ['/Ropa/23M.jpg', '/Ropa/23A.jpg', '/Ropa/23B.jpg', '/Ropa/23C.jpg', '/Ropa/23D.jpg'],
+    description: 'Chaqueta técnica ligera en nailon negro y antracita con paneles contrastados, capucha elástica, bolsillos con cremallera e insignia Compass.',
+    sizes: ['S', 'M', 'L', 'XL', 'XXL']
+  },
+  { 
+    id: 24, 
+    name: 'Chaqueta Stone Island Cortavientos', 
+    brand: 'Stone Island',
+    color: 'Verde',
+    price: '210€', 
+    image: '/Ropa/24M.jpg', 
+    images: ['/Ropa/24M.jpg', '/Ropa/24A.jpg', '/Ropa/24B.jpg', '/Ropa/24C.jpg', '/Ropa/24D.jpg'],
+    description: 'Chaqueta cortavientos en doble tono verde oliva y militar, tejido ripstop resistente al agua con cremallera frontal e insignia Stone Island.',
+    sizes: ['S', 'M', 'L', 'XL', 'XXL']
+  },
+  { 
+    id: 25, 
+    name: 'Chaqueta Stone Island Cortavientos', 
+    brand: 'Stone Island',
+    color: 'Azul',
+    price: '215€', 
+    image: '/Ropa/25M.jpg', 
+    images: ['/Ropa/25M.jpg', '/Ropa/25A.jpg', '/Ropa/25B.jpg', '/Ropa/25C.jpg', '/Ropa/25D.jpg'],
+    description: 'Chaqueta cortavientos azul marino en tejido técnico ultraligero y repelente al agua, capucha ajustable e insignia Stone Island Compass desmontable.',
+    sizes: ['S', 'M', 'L', 'XL', 'XXL']
+  },
+  { 
+    id: 26, 
+    name: 'Chaqueta C.P. Company Pro-Tek', 
+    brand: 'C.P. Company',
+    color: 'Azul',
+    price: '225€', 
+    image: '/Ropa/26M.jpg', 
+    images: ['/Ropa/26M.jpg', '/Ropa/26A.jpg', '/Ropa/26B.jpg', '/Ropa/26C.jpg', '/Ropa/26D.jpg'],
+    description: 'Chaqueta técnica azul marino confeccionada en tejido Pro-Tek de alto rendimiento elástico y resistente a la intemperie, con capucha y lente C.P. Company.',
+    sizes: ['S', 'M', 'L', 'XL', 'XXL']
   }
 ];
 
