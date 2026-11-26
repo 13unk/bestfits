@@ -5,6 +5,7 @@ import { Shop } from './Shop';
 import { AllArticles } from './AllArticles';
 import { Product } from './Product';
 import { Cart } from './Cart';
+import { Checkout } from './Checkout';
 import { Tracking } from './Tracking';
 import { Faq } from './Faq';
 import { Contact } from './Contact';
@@ -19,6 +20,7 @@ export default function App() {
         <Route path="/all" element={<ShopLayout><AllArticles /></ShopLayout>} />
         <Route path="/product/:id" element={<ShopLayout><Product /></ShopLayout>} />
         <Route path="/cart" element={<ShopLayout><Cart /></ShopLayout>} />
+        <Route path="/checkout" element={<ShopLayout><Checkout /></ShopLayout>} />
         <Route path="/tracking" element={<ShopLayout><Tracking /></ShopLayout>} />
         <Route path="/faq" element={<Faq />} />
         <Route path="/contact" element={<Contact />} />
@@ -28,6 +30,7 @@ export default function App() {
         <Route path="/shop/all" element={<ShopLayout><AllArticles /></ShopLayout>} />
         <Route path="/shop/product/:id" element={<ShopLayout><Product /></ShopLayout>} />
         <Route path="/shop/cart" element={<ShopLayout><Cart /></ShopLayout>} />
+        <Route path="/shop/checkout" element={<ShopLayout><Checkout /></ShopLayout>} />
         <Route path="/shop/tracking" element={<ShopLayout><Tracking /></ShopLayout>} />
         <Route path="/shop/faq" element={<Faq />} />
         <Route path="/shop/contact" element={<Contact />} />

@@ -1,7 +1,9 @@
+import { useNavigate } from 'react-router-dom';
 import { useShop } from './ShopContext';
 import { Trash2, Plus, Minus } from 'lucide-react';
 
 export function Cart() {
+  const navigate = useNavigate();
   const { cart, removeFromCart, updateQuantity } = useShop();
 
   const total = cart.reduce((acc, item) => {
@@ -79,7 +81,13 @@ export function Cart() {
 
           <div className="cart-summary">
             <div className="cart-total">Total: {total}€</div>
-            <button className="cart-checkout-btn">CHECKOUT</button>
+            <button
+              type="button"
+              className="cart-checkout-btn"
+              onClick={() => navigate('/checkout')}
+            >
+              CHECKOUT
+            </button>
           </div>
         </>
       )}

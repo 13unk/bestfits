@@ -14,6 +14,7 @@ interface ShopContextType {
   addToCart: (item: Omit<CartItem, 'quantity'> & { quantity?: number }) => void;
   removeFromCart: (index: number) => void;
   updateQuantity: (index: number, newQuantity: number) => void;
+  clearCart: () => void;
 }
 
 const ShopContext = createContext<ShopContextType | undefined>(undefined);
@@ -67,8 +68,12 @@ export function ShopProvider({ children }: { children: ReactNode }) {
     });
   };
 
+  const clearCart = () => {
+    setCart([]);
+  };
+
   return (
-    <ShopContext.Provider value={{ cart, addToCart, removeFromCart, updateQuantity }}>
+    <ShopContext.Provider value={{ cart, addToCart, removeFromCart, updateQuantity, clearCart }}>
       {children}
     </ShopContext.Provider>
   );
